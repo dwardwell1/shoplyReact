@@ -8,7 +8,8 @@ const {products} = require('./data.json');
 
 let cartArray = Object.entries(products)
 
-let realCart = cartArray
+
+
 
 const Cart = () => {
     return (
@@ -16,7 +17,7 @@ const Cart = () => {
       
           
          
-           {realCart.forEach(product => {
+           {cartArray.map(product => {
               {console.log(product)}
                <p>test </p>
               })}
