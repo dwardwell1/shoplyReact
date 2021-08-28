@@ -1,10 +1,11 @@
-import Cart from './Cart';
+import ItemsList from './ItemsList';
+import Routes from './Routes';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <Cart />
+      <Routes />
     </div>
   );
 }

@@ -1,31 +1,29 @@
-import React, {useState} from 'react';
-import {useSelector, useDispatch} from 'react-redux';
+
+import React from 'react';
+import {useSelector, useDispatch, shallowEqual} from 'react-redux';
 import Item from './Item';
-
-import { v4 as uuidv4 } from 'uuid';
-
+import CartCounter from './CartCounter';
 const {products} = require('./data.json');
 
-let cartArray = Object.entries(products)
+function Cart() {
+    
+    const cart = useSelector(state => state, shallowEqual);
+   const cartArray = []
+    for( const property in cart){
+        if (cart[property] > 0) {
+            cartArray.push(property)}
+            console.log(cartArray)
+        };
+    
 
-
-
-
-const Cart = () => {
     return (
-        <div className="cart">
-      
-          
-         
-           {cartArray.map(product => {
-              {console.log(product)}
-               <p>test </p>
-              })}
-               
-         
-             
+        <div className="">
+            <h2>Your Cart</h2>
+            {cartArray.map(item => (
+                <Item product={item} good={products[item]} />))}
+            
         </div>
-    )
+    );
 }
 
 export default Cart;
